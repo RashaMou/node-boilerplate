@@ -1,6 +1,10 @@
 # Node/Express/Knex/Postgres/JWT Boilerplate
 
-Boilerplate code for quick backend setup using express/knex/postgres/jwt/jest/supertest
+Boilerplate code for quick backend setup using: 
+- Node/express
+- knex/postgres for database
+- jwt for authentication
+- jest/supertest for testing
 
 ## Setup
 
