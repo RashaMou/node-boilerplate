@@ -44,3 +44,7 @@ POSTGRES_TEST_USER=postgres
 POSTGRES_TEST_PASSWORD= \_Insert your postgres password here*
 POSTGRES_TEST_DATABASE=db-name-test
 ```
+
+## TO DO
+
+Add tests
