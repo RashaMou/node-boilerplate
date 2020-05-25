@@ -1,7 +1,7 @@
 const db = require("../../database/db_config");
 
 // GET ALL USERS
-const find = () => {
+const findUsers = () => {
   return db("users");
 };
 
@@ -21,7 +21,7 @@ const deleteUser = (id) => {
 };
 
 module.exports = {
-  find,
+  findUsers,
   findById,
   updateUser,
   deleteUser,
