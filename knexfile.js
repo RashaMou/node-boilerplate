@@ -3,49 +3,51 @@
 module.exports = {
   development: {
     client: "pg",
+    useNullAsDefault: true,
     connection: {
-      host: "127.0.0.1",
-      user: "[db_username]",
-      password: "[db_password]",
-      database: "[db_name]",
-      charset: "utf8",
+      host: process.env.POSTGRES_DEV_HOST,
+      port: process.env.POSTGRES_DEV_PORT,
+      user: process.env.POSTGRES_DEV_USER,
+      password: process.env.POSTGRES_DEV_PASSWORD,
+      database: process.env.POSTGRES_DEV_DATABASE,
     },
     migrations: {
-      directory: __dirname + "/database/migrations",
+      directory: "./database/migrations",
     },
     seeds: {
-      directory: __dirname + "/databse/seeds",
+      directory: "./database/seeds",
     },
   },
 
-  staging: {
-    client: "postgresql",
+  testing: {
+    client: "pg",
     connection: {
-      database: "my_db",
-      user: "username",
-      password: "password",
+      host: process.env.POSTGRES_TEST_HOST,
+      port: process.env.POSTGRES_TEST_PORT,
+      user: process.env.POSTGRES_TEST_USER,
+      password: process.env.POSTGRES_TEST_PASSWORD,
+      database: process.env.POSTGRES_TEST_DATABASE,
     },
-    pool: {
-      min: 2,
-      max: 10,
-    },
+    useNullAsDefault: true,
     migrations: {
-      tableName: "knex_migrations",
+      directory: "./database/migrations",
+    },
+    seeds: {
+      directory: "./database/seeds",
     },
   },
+
   production: {
-    client: "postgresql",
-    connection: {
-      database: "my_db",
-      user: "username",
-      password: "password",
-    },
-    pool: {
-      min: 2,
-      max: 10,
-    },
+    client: "pg",
+    useNullAsDefault: true,
+
+    connection: process.env.DATABASE_URL,
+
     migrations: {
-      tableName: "knex_migrations",
+      directory: "./database/migrations",
+    },
+    seeds: {
+      directory: "./database/seeds",
     },
   },
 };
