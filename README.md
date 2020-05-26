@@ -28,36 +28,72 @@ NOTE: Skip steps 5 and 6 for now. Migrations and seeds have not been run yet and
 npm run tests
 ```
 
-## <a id="postgres"></a>Setup PostgreSQL (Mac)
+Tests are set up to run continously. If you want to run them manually, remove the `--watch` flag from the `test` script in `package.json`
 
-### MacOS
+## <a id="postgres"></a>Setup PostgreSQL (Mac)
 
 To install postgres, follow [these instructions.](https://www.codementor.io/@engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb)
 
-Download [pgAdmin](https://www.pgadmin.org/)
+### Create development and testing databases
 
-#### Create development and testing databases
+Start the Postgres CLI:
 
-Run the following commands in the terminal: 1. `psql` -- to get into the postgreSQL cli 2. `CREATE DATABASE db-name;` -- creates development database 3. `CREATE DATABASE db-name-test;` -- creates testing database 4. `\q`
+```
+psql
+```
+
+If you have not previously done so, create a user with permission to create a database with the following command:
+
+```
+createuser {username} --createdb
+```
+
+Switch to your username:
+
+```
+psql postgres -U {username}
+```
+
+Create development database:
+
+```
+CREATE DATABASE {db-name};
+```
+
+Create testing database:
+
+```
+CREATE DATABASE {db-name-test};
+```
+
+Exit
+
+```
+\q
+```
 
 ## <a id="env"></a>`.env` Variables
 
-Create a `.env` file at the root of your project and add the following for development and testing databases
+Create a `.env` file at the root of your project and add the following for development and testing databases:
 
 ```
+
 POSTGRES_DEV_HOST=localhost
 POSTGRES_DEV_PORT=5432
-POSTGRES_DEV_USER=postgres
-POSTGRES_DEV_PASSWORD= \_Insert your postgres password here*
-POSTGRES_DEV_DATABASE=db-name
+POSTGRES_DEV_USER={postgres username}
+POSTGRES_DEV_PASSWORD={postgres password, if you set one}
+POSTGRES_DEV_DATABASE={db-name}
+
 ```
 
 ```
+
 POSTGRES_TEST_HOST=localhost
 POSTGRES_TEST_PORT=5432
-POSTGRES_TEST_USER=postgres
-POSTGRES_TEST_PASSWORD= \_Insert your postgres password here*
-POSTGRES_TEST_DATABASE=db-name-test
+POSTGRES_TEST_USER={postgres username}
+POSTGRES_TEST_PASSWORD={postgres password, if you set one}
+POSTGRES_TEST_DATABASE={db-name-test}
+
 ```
 
 ## TO DO

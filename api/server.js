@@ -10,6 +10,9 @@ const usersRouter = require("../api/users/users-router");
 server.use(helmet());
 server.use(cors());
 
+// Serving static files from "public" folder
+app.use(express.static("public"));
+
 //Routers
 server.use("/login", authRouter);
 server.use("/users", usersRouter);

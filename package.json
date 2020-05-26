@@ -19,9 +19,9 @@
   },
   "homepage": "https://github.com/RashaMou/node-boilerplate#readme",
   "devDependencies": {
+    "jest": "^26.0.1",
     "nodemon": "^2.0.4",
-    "supertest": "^4.0.2",
-    "jest": "^26.0.1"
+    "supertest": "^4.0.2"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
