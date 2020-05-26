@@ -7,6 +7,7 @@ This repo provides a template to quickly setup a basic CRUD backend using:
 - [Knex](https://www.knexjs.org) SQL query builder
 - [JWT](https://jwt.io) for authentication
 - [Jest](https://jestjs.io)/[Supertest](https://github.com/visionmedia/supertest) for testing
+- [apidoc](https://apidocjs.com) for documentation
 
 ## Setup
 
@@ -96,7 +97,24 @@ POSTGRES_TEST_DATABASE={db-name-test}
 
 ```
 
+## Documentation
+
+This project uses [apiDoc](https://apidocjs.com) to generate in-line documentation. It keeps your documentation close to your code for easy maintainability (and so you never forget to update it!).
+
+Basic documentation is already written up for the users endpoint, and the generated documentation can be found in the `docs` folder.
+
+To view the docs, open the `./docs/index.html` file in your browser.
+
+To update the `index.html` file after you have made changes to your documentation, run:
+
+```
+npm docs
+```
+
+You can read more about the different parameters you can use with apiDoc on their [documentation page.](https://apidocjs.com/#param-api)
+
+If you prefer to use another API documentation system, you can remove the `@apidoc` code in the api routers files.
+
 ## TO DO
 
 - Add migrations and seeds
-- Add tests

@@ -1,6 +1,26 @@
 const router = require("express").Router();
 const Users = require("./users-model");
 
+/**
+ * @api {get} /users Get all users
+ * @apiName GetUsers
+ * @apiGroup Users
+ *
+ * @apiSuccess {Users[]} users Array of users
+ *
+ * @apiSuccessExample Successful Response:
+ * HTTP/1.1 200 OK
+ * [{
+ * "id": 1,
+ * "email": "rasha@rasha.dev"
+ * },
+ * {
+ * "id": 1,
+ * "email": "rasha@fastmail.com"
+ * }]
+ *
+ */
+
 // GET ALL USERS
 router.get("/", async (req, res) => {
   let allUsers = await Users.findUsers();
@@ -14,6 +34,17 @@ router.get("/", async (req, res) => {
     res.status(500).json({ error: "Error retrieving users" });
   }
 });
+
+/**
+ * @api {get} /users Get user by ID
+ * @apiName GetUser
+ * @apiGroup Users
+ *
+ * @apiParam {Number} id User id
+ *
+ * @apiSuccess {Number} id User id
+ * @apiSuccess {String} email User email
+ */
 
 // GET USER BY ID
 router.get("/:id", async (req, res) => {

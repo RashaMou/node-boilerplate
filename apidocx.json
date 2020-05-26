@@ -1,0 +1,8 @@
+{
+  "name": "{Project name} API documentation",
+  "version": "0.1.0",
+  "description": "{Project description}",
+  "template": {
+    "forceLanguage": "en"
+  }
+}
