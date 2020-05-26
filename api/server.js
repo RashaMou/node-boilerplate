@@ -6,13 +6,17 @@ const restricted = require("../middleware/restricted");
 const authRouter = require("../api/auth/auth-router");
 const usersRouter = require("../api/users/users-router");
 
+// Middleware
 server.use(helmet());
 server.use(cors());
+
+//Routers
 server.use("/login", authRouter);
 server.use("/users", usersRouter);
 
+// Routes
 server.get("/", (req, res) => {
-  res.send("Hello from the API");
+  res.status(200).json({ message: "Hello from the API!" });
 });
 
 module.exports = server;

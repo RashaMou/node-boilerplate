@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
       res.status(404).json("No users found");
     }
   } catch (error) {
-    res.status(500).json({error: "Error retrieving users"});
+    res.status(500).json({ error: "Error retrieving users" });
   }
 });
 
@@ -25,7 +25,7 @@ router.get("/:id", async (req, res) => {
       res.status(404).json("No user with that id found");
     }
   } catch (error) {
-    res.status(500).json({error: "Error retrieving user"});
+    res.status(500).json({ error: "Error retrieving user" });
   }
 });
 
@@ -37,19 +37,19 @@ router.put("/:id", async (req, res) => {
     const updatedUser = await Users.updateUser(userId, userChanges);
     res.status(200).json(updatedUser);
   } catch (error) {
-    res.status(500).json({error: "Error updating user"});
+    res.status(500).json({ error: "Error updating user" });
   }
 });
 
 // DELETE USER
-router.delete("/:id", (req, res) => {
-    const userId = req.params.id
-    try {
-        const deleting = await Users.deleteUser(userId)
-        res.status(204).json(deleting)
-    } catch (error) {
-        res.status(500).json({ error: "Error deleting user" });
-    }
-})
+router.delete("/:id", async (req, res) => {
+  const userId = req.params.id;
+  try {
+    const deleting = await Users.deleteUser(userId);
+    res.status(204).json(deleting);
+  } catch (error) {
+    res.status(500).json({ error: "Error deleting user" });
+  }
+});
 
 module.exports = router;

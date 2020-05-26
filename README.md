@@ -1,23 +1,34 @@
 # Node/Express/Knex/Postgres/JWT Boilerplate
 
-Boilerplate code for quick backend setup using: 
-- Node/express
-- knex/postgres for database
-- jwt for authentication
-- jest/supertest for testing
+This repo provides a template to quickly setup a basic CRUD backend using:
+
+- [Node](https://www.nodejs.org)/[Express](https://www.expressjs.com)
+- [PostgreSQL](https://www.postgresql.org) relational database
+- [Knex](https://www.knexjs.org) SQL query builder
+- [JWT](https://jwt.io) for authentication
+- [Jest](https://jestjs.io)/[Supertest](https://github.com/visionmedia/supertest) for testing
 
 ## Setup
 
-1. Fork and clone repo
-2. npm install
-3. Setup postgres database
-4. Modify `.env` file
-5. Migrate tables: `npx knex migrate:latest`
+To use this boilerplate, please follow the steps below:
+
+NOTE: Skip steps 5 and 6 for now. Migrations and seeds have not been run yet and are on my todo list
+
+1. [Fork and clone](https://guides.github.com/activities/forking/) the repository
+2. Install dependencies: `npm install`
+3. [Setup postgres database](#postgres)
+4. [Modify `.env` file](#env)
+5. Run database migrations: `npx knex migrate:latest`
 6. Run seeds: `npx knex seed:run`
 7. Run server: `npm run server`
-8. Run tests: `npm run test`
 
-## Setup PostgreSQL (Mac)
+## Run Tests
+
+```
+npm run tests
+```
+
+## <a id="postgres"></a>Setup PostgreSQL (Mac)
 
 ### MacOS
 
@@ -29,7 +40,7 @@ Download [pgAdmin](https://www.pgadmin.org/)
 
 Run the following commands in the terminal: 1. `psql` -- to get into the postgreSQL cli 2. `CREATE DATABASE db-name;` -- creates development database 3. `CREATE DATABASE db-name-test;` -- creates testing database 4. `\q`
 
-## `.env` Variables
+## <a id="env"></a>`.env` Variables
 
 Create a `.env` file at the root of your project and add the following for development and testing databases
 
@@ -51,4 +62,5 @@ POSTGRES_TEST_DATABASE=db-name-test
 
 ## TO DO
 
-Add tests
+- Add migrations and seeds
+- Add tests
